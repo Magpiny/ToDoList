@@ -41,6 +41,10 @@ window.onload = function() {
   window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
   // DON'T use "var indexedDB = ..." if you're not in a function.
   // Moreover, you may need references to some window.IDB* objects:
+
+  //Now check for indexedDB support
+  let checkDB = window.indexedDB ? console.log("IndexedDB supported by this browser") : alert("IndexedDB NOT supported by your browser !!");
+
   window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction;
   window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange;
   // (Mozilla has never prefixed these objects, so we don't need window.mozIDB*)
@@ -120,8 +124,8 @@ window.onload = function() {
           }
 
           // build the to-do list entry and put it into the list item via innerHTML.
-          listItem.innerHTML = cursor.value.taskTitle + ' — ' + cursor.value.hours + ':' + cursor.value.minutes + ', ' + cursor.value.month + ' ' + cursor.value.day + daySuffix + ' ' + cursor.value.year + '.';
-
+          
+          listItem.innerHTML = `${ cursor.value.taskTitle } - ${ cursor.value.hours } : ${ cursor.value.minutes }, ${ cursor.value.month } ${cursor.value.day} ${daySuffix} ${cursor.value.year}.`;
           if(cursor.value.notified == "yes") {
             listItem.style.textDecoration = "line-through";
             listItem.style.color = "rgba(255,0,0,0.5)";
@@ -134,7 +138,9 @@ window.onload = function() {
           // function when clicked
           const deleteButton = document.createElement('button');
           listItem.appendChild(deleteButton);
-          deleteButton.innerHTML = 'X';
+          deleteButton.innerHTML = '&#10006;';
+          deleteButton.style.color = 'red';
+          deleteButton.style.float = 'right';
           // here we are setting a data attribute on our delete button to say what task we want deleted if it is clicked!
           deleteButton.setAttribute('data-task', cursor.value.taskTitle);
           deleteButton.onclick = function(event) {
@@ -208,7 +214,7 @@ window.onload = function() {
           minutes.value = null;
           day.value = 01;
           month.value = 'January';
-          year.value = 2020;
+          year.value = 2021;
 
         };
 

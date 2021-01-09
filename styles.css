@@ -45,6 +45,8 @@ h1 {
 
 h2 {
   font-size: 2.4rem;
+  border-radius: 1.6rem;
+  color: blue;
 }
 
 /* || bottom toolbar styling  */
@@ -97,7 +99,10 @@ hr{
   width: 15vw;
 }
 /* || new item form styling */
-
+i{
+  font-size: 3rem;
+  color: #f88f01;
+}
 .form-box {
   background: #312c51;
   width: 85%;
@@ -109,7 +114,7 @@ hr{
 
 li:nth-of-type(even){
     background-color: #5eaaa8;
-    width: 30vw;
+    color: #db6400;
 }
 form div {
   margin-bottom: 1rem;
