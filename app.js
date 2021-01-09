@@ -138,7 +138,7 @@ window.onload = function() {
           // function when clicked
           const deleteButton = document.createElement('button');
           listItem.appendChild(deleteButton);
-          deleteButton.innerHTML = '&#10006;';
+          deleteButton.innerHTML = '&#10006;'; //delete icon html entity 
           deleteButton.style.color = 'red';
           deleteButton.style.float = 'right';
           // here we are setting a data attribute on our delete button to say what task we want deleted if it is clicked!
@@ -388,7 +388,7 @@ window.onload = function() {
   function createNotification(title) {
 
     // Create and show the notification
-    let img = '/to-do-notifications/img/icon-128.png';
+    let img = '&#10067;';
     let text = 'HEY! Your task "' + title + '" is now overdue.';
     let notification = new Notification('To do list', { body: text, icon: img });
 
@@ -421,3 +421,17 @@ window.onload = function() {
   // using a setInterval to run the checkDeadlines() function every second
   setInterval(checkDeadlines, 1000);
 }
+
+//I just like adding time element to every project of mine am sorry
+setInterval(
+	() => {
+		let time  = document.querySelector('#time');
+		let today = new Date().toLocaleString();
+		time.style.fontSize = '1.15rem' ;
+		time.style.float = 'right';
+		time.style.padding = '0.89vw';
+		time.style.color = 'blue';
+		time.textContent = today;
+	}
+    
+	,1000)
