@@ -388,7 +388,7 @@ window.onload = function() {
   function createNotification(title) {
 
     // Create and show the notification
-    let img = '&#10067;';
+    let img = '&#128276;'; //bell emoji
     let text = 'HEY! Your task "' + title + '" is now overdue.';
     let notification = new Notification('To do list', { body: text, icon: img });
 
